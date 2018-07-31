@@ -1,11 +1,6 @@
 package com.egakat.core.web.client.service.api;
 
-import java.io.Serializable;
-
-import com.egakat.core.domain.IdentifiedDomainObject;
-
-public interface LocalCrudService<M extends IdentifiedDomainObject<ID>, ID extends Serializable>
-		extends LocalQueryService<M, ID> {
+public interface LocalCrudService<M, ID> extends LocalQueryService<M, ID> {
 
 	M create(M model);
 

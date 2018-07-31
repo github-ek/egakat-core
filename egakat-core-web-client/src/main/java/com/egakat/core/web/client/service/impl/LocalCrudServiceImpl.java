@@ -1,13 +1,10 @@
 package com.egakat.core.web.client.service.impl;
 
-import java.io.Serializable;
-
-import com.egakat.core.domain.IdentifiedDomainObject;
 import com.egakat.core.web.client.service.api.LocalCrudService;
 
 import lombok.val;
 
-public abstract class LocalCrudServiceImpl<M extends IdentifiedDomainObject<ID>, ID extends Serializable> extends LocalQueryServiceImpl<M, ID> 
+public abstract class LocalCrudServiceImpl<M, ID> extends LocalQueryServiceImpl<M, ID> 
 		implements LocalCrudService<M, ID> {
 
 	// -----------------------------------------------'-------------------------------------------------------------------------------------

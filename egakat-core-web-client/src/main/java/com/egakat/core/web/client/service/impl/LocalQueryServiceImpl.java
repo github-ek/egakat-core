@@ -2,7 +2,6 @@ package com.egakat.core.web.client.service.impl;
 
 import static java.util.Arrays.asList;
 
-import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -11,7 +10,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.egakat.core.domain.IdentifiedDomainObject;
 import com.egakat.core.web.client.components.RestClient;
 import com.egakat.core.web.client.configuration.RestProperties;
 import com.egakat.core.web.client.service.api.LocalQueryService;
@@ -20,7 +18,7 @@ import lombok.val;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public abstract class LocalQueryServiceImpl<M extends IdentifiedDomainObject<ID>, ID extends Serializable>
+public abstract class LocalQueryServiceImpl<M, ID>
 		implements LocalQueryService<M, ID> {
 
 	abstract protected RestProperties getProperties();
