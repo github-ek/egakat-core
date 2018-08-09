@@ -1,6 +1,5 @@
 package com.egakat.core.services.crud.api;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
@@ -9,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.egakat.core.domain.IdentifiedDomainObject;
 
 @Transactional(readOnly = true)
-public interface CrudService<M extends IdentifiedDomainObject<ID>, ID extends Serializable> extends QueryService<M, ID>{
+public interface CrudService<M extends IdentifiedDomainObject<ID>, ID> extends QueryService<M, ID> {
 
 	@Transactional
 	M create(M model);

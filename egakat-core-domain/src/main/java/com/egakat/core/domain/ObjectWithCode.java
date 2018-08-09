@@ -1,8 +1,6 @@
 package com.egakat.core.domain;
 
-import java.io.Serializable;
-
-public interface ObjectWithCode<ID extends Serializable> extends IdentifiedDomainObject<ID>{
+public interface ObjectWithCode<ID> extends IdentifiedDomainObject<ID>{
 
 	String getCodigo();
 

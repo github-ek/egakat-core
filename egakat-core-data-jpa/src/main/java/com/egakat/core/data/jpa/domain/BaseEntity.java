@@ -2,28 +2,18 @@ package com.egakat.core.data.jpa.domain;
 
 import java.util.Objects;
 
-import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 import com.egakat.core.domain.IdentifiedDomainObject;
 
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
 
 @MappedSuperclass
-@Getter
-@Setter(value = AccessLevel.PRIVATE)
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
-public abstract class ReadOnlyEntity<ID> implements IdentifiedDomainObject<ID> {
-
-	@Id
-	private ID id;
+public abstract class BaseEntity<ID> implements IdentifiedDomainObject<ID> {
 
 	/**
 	 * This `hashCode` implementation is specific for JPA entities and uses a fixed
@@ -50,7 +40,7 @@ public abstract class ReadOnlyEntity<ID> implements IdentifiedDomainObject<ID> {
 			return false;
 
 		@SuppressWarnings("unchecked")
-		ReadOnlyEntity<ID> other = (ReadOnlyEntity<ID>) obj;
+		BaseEntity<ID> other = (BaseEntity<ID>) obj;
 
 		return Objects.equals(getId(), other.getId());
 	}

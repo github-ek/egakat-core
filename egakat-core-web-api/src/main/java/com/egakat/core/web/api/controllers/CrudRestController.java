@@ -1,7 +1,5 @@
 package com.egakat.core.web.api.controllers;
 
-import java.io.Serializable;
-
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
@@ -16,8 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.egakat.core.domain.IdentifiedDomainObject;
 import com.egakat.core.services.crud.api.CrudService;
 
-abstract public class CrudRestController<M extends IdentifiedDomainObject<ID>, ID extends Serializable>
-		extends QueryRestController<M, ID> {
+abstract public class CrudRestController<M extends IdentifiedDomainObject<ID>, ID> extends QueryRestController<M, ID> {
 
 	// -----------------------------------------------'-------------------------------------------------------------------------------------
 	// -- PATHS

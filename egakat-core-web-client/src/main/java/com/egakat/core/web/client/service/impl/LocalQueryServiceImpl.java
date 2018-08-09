@@ -18,8 +18,7 @@ import lombok.val;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public abstract class LocalQueryServiceImpl<M, ID>
-		implements LocalQueryService<M, ID> {
+public abstract class LocalQueryServiceImpl<M, ID> implements LocalQueryService<M, ID> {
 
 	abstract protected RestProperties getProperties();
 

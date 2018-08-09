@@ -1,0 +1,42 @@
+package com.egakat.commons.domain;
+
+import java.time.LocalDateTime;
+
+import javax.persistence.Column;
+import javax.persistence.EntityListeners;
+import javax.persistence.MappedSuperclass;
+
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.egakat.core.domain.ObjectAuditableByUser;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@MappedSuperclass
+@Getter
+@Setter
+@ToString(callSuper = true)
+@NoArgsConstructor
+@EntityListeners(AuditingEntityListener.class)
+public abstract class BusinessEntity<ID> extends SimpleEntity<ID> implements ObjectAuditableByUser {
+
+	@Column(name = "usuario_creacion", updatable = false)
+	@CreatedBy
+	private String creadoPor;
+
+	@Column(name = "usuario_modificacion")
+	@LastModifiedBy
+	private String modificadoPor;
+
+	public BusinessEntity(ID id, int version, String creadoPor, LocalDateTime fechaCreacion, String modificadoPor,
+			LocalDateTime fechaModificacion) {
+		super(id, version, fechaCreacion, fechaModificacion);
+		this.creadoPor = creadoPor;
+		this.modificadoPor = modificadoPor;
+	}
+}

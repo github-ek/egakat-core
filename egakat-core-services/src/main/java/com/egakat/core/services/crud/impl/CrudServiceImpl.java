@@ -1,6 +1,5 @@
 package com.egakat.core.services.crud.impl;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -14,7 +13,7 @@ import com.egakat.core.services.crud.api.CrudService;
 
 import lombok.val;
 
-abstract public class CrudServiceImpl<E extends IdentifiedDomainObject<ID>, M extends IdentifiedDomainObject<ID>, ID extends Serializable>
+abstract public class CrudServiceImpl<E extends IdentifiedDomainObject<ID>, M extends IdentifiedDomainObject<ID>, ID>
 		extends QueryServiceImpl<E, M, ID> implements CrudService<M, ID> {
 
 	@Override

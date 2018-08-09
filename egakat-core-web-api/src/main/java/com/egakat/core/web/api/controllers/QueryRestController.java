@@ -1,6 +1,5 @@
 package com.egakat.core.web.api.controllers;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,7 +14,7 @@ import com.egakat.core.services.crud.api.QueryService;
 
 import lombok.val;
 
-abstract public class QueryRestController<M extends IdentifiedDomainObject<ID>, ID extends Serializable> {
+abstract public class QueryRestController<M extends IdentifiedDomainObject<ID>, ID> {
 
 	// -----------------------------------------------'-------------------------------------------------------------------------------------
 	// -- PATHS
@@ -65,17 +64,6 @@ abstract public class QueryRestController<M extends IdentifiedDomainObject<ID>, 
 	// ------------------------------------------------------------------------------------------------------------------------------------
 	// -- URIs
 	// ------------------------------------------------------------------------------------------------------------------------------------
-//	protected UriComponents listURI() {
-//		// @formatter:off
-//		val result = MvcUriComponentsBuilder
-//				.fromMethodCall(MvcUriComponentsBuilder.on(QueryRestController.class).list())
-//				.build()
-//				.encode();
-//		// @formatter:on
-//
-//		return result;
-//	}
-
 	@SuppressWarnings("unchecked")
 	protected UriComponents showURI(IdentifiedDomainObject<ID> model) {
 		// @formatter:off

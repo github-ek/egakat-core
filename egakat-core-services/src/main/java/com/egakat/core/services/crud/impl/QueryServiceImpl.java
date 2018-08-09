@@ -2,7 +2,6 @@ package com.egakat.core.services.crud.impl;
 
 import static java.util.stream.Collectors.toList;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -17,7 +16,7 @@ import com.egakat.core.services.crud.api.QueryService;
 
 import lombok.val;
 
-public abstract class QueryServiceImpl<E extends IdentifiedDomainObject<ID>, M extends IdentifiedDomainObject<ID>, ID extends Serializable>
+public abstract class QueryServiceImpl<E extends IdentifiedDomainObject<ID>, M extends IdentifiedDomainObject<ID>, ID>
 		implements QueryService<M, ID> {
 
 	public QueryServiceImpl() {

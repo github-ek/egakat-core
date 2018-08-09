@@ -11,7 +11,8 @@ public interface RestClient {
 
 	<T> ResponseEntity<T> getOneQuery(String resourcePath, String query, Class<T> responseType, Object... uriVariables);
 
-	<T> ResponseEntity<T[]> getAllQuery(String resourcePath, String query, Class<T[]> responseType, Object... uriVariables);
+	<T> ResponseEntity<T[]> getAllQuery(String resourcePath, String query, Class<T[]> responseType,
+			Object... uriVariables);
 
 	// -----------------------------------------------'-------------------------------------------------------------------------------------
 	// -- HTTP POST, PUT, DELETE METHODS
@@ -20,7 +21,7 @@ public interface RestClient {
 
 	<T> ResponseEntity<T> put(String resourcePath, Object model, Class<T> responseType, Object... uriVariables);
 
-	<ID > void delete(String resourcePath, ID id);
-	
-	<ID > void delete(String resourcePath, ID id, int version);
+	<ID> void delete(String resourcePath, ID id);
+
+	<ID> void delete(String resourcePath, ID id, int version);
 }
