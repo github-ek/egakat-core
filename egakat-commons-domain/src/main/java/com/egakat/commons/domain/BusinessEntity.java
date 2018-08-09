@@ -33,8 +33,8 @@ public abstract class BusinessEntity<ID> extends SimpleEntity<ID> implements Obj
 	@LastModifiedBy
 	private String modificadoPor;
 
-	public BusinessEntity(ID id, int version, String creadoPor, LocalDateTime fechaCreacion, String modificadoPor,
-			LocalDateTime fechaModificacion) {
+	public BusinessEntity(ID id, int version, LocalDateTime fechaCreacion, String creadoPor,
+			LocalDateTime fechaModificacion, String modificadoPor) {
 		super(id, version, fechaCreacion, fechaModificacion);
 		this.creadoPor = creadoPor;
 		this.modificadoPor = modificadoPor;

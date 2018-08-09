@@ -26,8 +26,8 @@ public abstract class BusinessEntityDto<ID> extends SimpleEntityDto<ID> implemen
 	@Size(max = 50)
 	private String modificadoPor;
 
-	public BusinessEntityDto(ID id, int version, @NotNull @Size(max = 50) String creadoPor, LocalDateTime fechaCreacion,
-			@NotNull @Size(max = 50) String modificadoPor, LocalDateTime fechaModificacion) {
+	public BusinessEntityDto(ID id, int version, LocalDateTime fechaCreacion, @NotNull @Size(max = 50) String creadoPor,
+			LocalDateTime fechaModificacion, @NotNull @Size(max = 50) String modificadoPor) {
 		super(id, version, fechaCreacion, fechaModificacion);
 		this.creadoPor = creadoPor;
 		this.modificadoPor = modificadoPor;

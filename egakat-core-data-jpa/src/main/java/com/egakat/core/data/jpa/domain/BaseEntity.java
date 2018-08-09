@@ -6,7 +6,6 @@ import javax.persistence.MappedSuperclass;
 
 import com.egakat.core.domain.IdentifiedDomainObject;
 
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
