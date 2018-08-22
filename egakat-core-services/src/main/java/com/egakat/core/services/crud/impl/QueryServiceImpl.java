@@ -37,14 +37,10 @@ public abstract class QueryServiceImpl<E extends IdentifiedDomainObject<ID>, M e
 	public Optional<M> findById(ID id) {
 		Optional<E> optional = findEntityById(id);
 
-		Optional<M> result;
-		if (!optional.isPresent()) {
-			result = Optional.empty();
-		} else {
-			result = Optional.of(asModel(optional.get()));
-		}
+		val result = asModel(optional);
 		return result;
 	}
+
 
 	@Override
 	public List<M> findAllById(List<ID> ids) {

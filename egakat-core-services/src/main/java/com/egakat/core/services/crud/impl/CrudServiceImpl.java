@@ -95,7 +95,7 @@ abstract public class CrudServiceImpl<E extends IdentifiedDomainObject<ID>, M ex
 
 		if (entity instanceof VersionableObject) {
 			throw new UnsupportedOperationException(
-					"La entidad implenta la interfaz VersionableObject y debe ser eliminada por medio del metodo delete(ID id, int version)");
+					"La entidad implementa la interfaz VersionableObject y debe ser eliminada por medio del metodo delete(ID id, int version)");
 		}
 
 		entity = beforeDelete(entity);
