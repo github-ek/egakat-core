@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.egakat.core.domain.IdentifiedDomainObject;
 
-@Transactional(readOnly = true)
 public interface CrudService<M extends IdentifiedDomainObject<ID>, ID> extends QueryService<M, ID> {
 
 	@Transactional
