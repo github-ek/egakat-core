@@ -16,7 +16,7 @@ import lombok.ToString;
 @Setter
 @ToString(callSuper = true)
 @NoArgsConstructor
-public abstract class BusinessEntityDto<ID> extends SimpleEntityDto<ID> implements ObjectAuditableByUser {
+public abstract class BusinessEntityDto<ID> extends SimpleAuditableEntityDto<ID> implements ObjectAuditableByUser {
 
 	@NotNull
 	@Size(max = 50)

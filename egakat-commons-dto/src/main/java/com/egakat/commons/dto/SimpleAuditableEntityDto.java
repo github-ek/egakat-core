@@ -18,7 +18,8 @@ import lombok.ToString;
 @Setter
 @ToString(callSuper = true)
 @NoArgsConstructor
-public abstract class SimpleEntityDto<ID> extends EntityDto<ID> implements VersionableObject, ObjectAuditableByTime {
+public abstract class SimpleAuditableEntityDto<ID> extends EntityDto<ID>
+		implements VersionableObject, ObjectAuditableByTime {
 
 	@NumberFormat
 	private int version;
@@ -29,7 +30,7 @@ public abstract class SimpleEntityDto<ID> extends EntityDto<ID> implements Versi
 	@DateTimeFormat(style = "M-")
 	private LocalDateTime fechaModificacion;
 
-	public SimpleEntityDto(ID id, int version, LocalDateTime fechaCreacion, LocalDateTime fechaModificacion) {
+	public SimpleAuditableEntityDto(ID id, int version, LocalDateTime fechaCreacion, LocalDateTime fechaModificacion) {
 		super(id);
 		this.version = version;
 		this.fechaCreacion = fechaCreacion;

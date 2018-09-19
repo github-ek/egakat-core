@@ -23,7 +23,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-public abstract class BusinessEntity<ID> extends SimpleEntity<ID> implements ObjectAuditableByUser {
+public abstract class AuditableEntity<ID> extends SimpleAuditableEntity<ID> implements ObjectAuditableByUser {
 
 	@Column(name = "usuario_creacion", updatable = false)
 	@CreatedBy
@@ -33,7 +33,7 @@ public abstract class BusinessEntity<ID> extends SimpleEntity<ID> implements Obj
 	@LastModifiedBy
 	private String modificadoPor;
 
-	public BusinessEntity(ID id, int version, LocalDateTime fechaCreacion, String creadoPor,
+	public AuditableEntity(ID id, int version, LocalDateTime fechaCreacion, String creadoPor,
 			LocalDateTime fechaModificacion, String modificadoPor) {
 		super(id, version, fechaCreacion, fechaModificacion);
 		this.creadoPor = creadoPor;

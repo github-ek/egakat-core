@@ -31,7 +31,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-public abstract class SimpleEntity<ID> extends BaseEntity<ID> implements VersionableObject, ObjectAuditableByTime {
+public abstract class SimpleAuditableEntity<ID> extends BaseEntity<ID> implements VersionableObject, ObjectAuditableByTime {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,7 +51,7 @@ public abstract class SimpleEntity<ID> extends BaseEntity<ID> implements Version
 	@DateTimeFormat(style = "M-")
 	private LocalDateTime fechaModificacion;
 
-	public SimpleEntity(ID id, int version, LocalDateTime fechaCreacion, LocalDateTime fechaModificacion) {
+	public SimpleAuditableEntity(ID id, int version, LocalDateTime fechaCreacion, LocalDateTime fechaModificacion) {
 		super();
 		this.id = id;
 		this.version = version;
