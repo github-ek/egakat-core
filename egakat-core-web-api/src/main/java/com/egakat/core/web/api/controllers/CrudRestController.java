@@ -41,7 +41,7 @@ abstract public class CrudRestController<M extends IdentifiedDomainObject<ID>, I
 		}
 
 		if (bindingResult.hasErrors()) {
-			return ResponseEntity.status(HttpStatus.CONFLICT).body(bindingResult);
+			return ResponseEntity.status(HttpStatus.CONFLICT).body(bindingResult.getAllErrors());
 		}
 
 		M result = getService().create(model);
@@ -56,7 +56,7 @@ abstract public class CrudRestController<M extends IdentifiedDomainObject<ID>, I
 		}
 
 		if (bindingResult.hasErrors()) {
-			return ResponseEntity.status(HttpStatus.CONFLICT).body(bindingResult);
+			return ResponseEntity.status(HttpStatus.CONFLICT).body(bindingResult.getAllErrors());
 		}
 
 		M result = getService().update(model);

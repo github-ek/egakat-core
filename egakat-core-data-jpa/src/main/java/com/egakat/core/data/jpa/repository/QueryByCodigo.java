@@ -4,6 +4,6 @@ import java.util.Optional;
 
 import com.egakat.core.domain.ObjectWithCode;
 
-public interface QueryByCodigo<T extends ObjectWithCode<ID>, ID>{
-	Optional<T> findByCodigo(String codigo);
+public interface QueryByCodigo<E extends ObjectWithCode<ID>, ID>{
+	Optional<E> findByCodigo(String codigo);
 }

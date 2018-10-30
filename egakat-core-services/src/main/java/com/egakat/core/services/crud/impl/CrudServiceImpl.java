@@ -59,16 +59,19 @@ abstract public class CrudServiceImpl<E extends IdentifiedDomainObject<ID>, M ex
 		entity = mergeEntity(model, entity);
 		entity = beforeUpdate(entity);
 
+		setVersion(model, entity);
+		entity = saveAndFlush(entity);
+
+		M result = asModel(entity);
+		return result;
+	}
+
+	protected void setVersion(M model, E entity) {
 		if (entity instanceof VersionableObject && model instanceof VersionableObject) {
 			val e = (VersionableObject) entity;
 			val m = (VersionableObject) model;
 			e.setVersion(m.getVersion());
 		}
-
-		entity = saveAndFlush(entity);
-
-		M result = asModel(entity);
-		return result;
 	}
 
 	@Override
@@ -115,7 +118,7 @@ abstract public class CrudServiceImpl<E extends IdentifiedDomainObject<ID>, M ex
 
 		if (!(entity instanceof VersionableObject)) {
 			throw new UnsupportedOperationException(
-					"La entidad NO implenta la interfaz VersionableObject y debe ser eliminada por medio del metodo delete(ID id)");
+					"La entidad NO implementa la interfaz VersionableObject y debe ser eliminada por medio del metodo delete(ID id)");
 		}
 
 		val e = (VersionableObject) entity;

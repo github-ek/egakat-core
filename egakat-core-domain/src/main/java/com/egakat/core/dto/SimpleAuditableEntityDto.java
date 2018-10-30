@@ -1,4 +1,4 @@
-package com.egakat.commons.dto;
+package com.egakat.core.dto;
 
 import java.time.LocalDateTime;
 

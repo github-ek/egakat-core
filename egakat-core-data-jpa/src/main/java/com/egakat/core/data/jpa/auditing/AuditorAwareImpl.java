@@ -9,6 +9,18 @@ public class AuditorAwareImpl implements AuditorAware<String> {
 	
 	@Override
 	public Optional<String> getCurrentAuditor() {
-		return Optional.of("");
+		
+/*		log.debug("Getting the username of authenticated user.");
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication == null || !authentication.isAuthenticated()) {
+        	log.debug("Current user is anonymous. Returning null.");
+            return null;
+        }
+
+        String username = ((User) authentication.getPrincipal()).getUsername();
+        log.debug("Returning username: {}", username);
+*/
+		return Optional.of("_");
 	}
 }

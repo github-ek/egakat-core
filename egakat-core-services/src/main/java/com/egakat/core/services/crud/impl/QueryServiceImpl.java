@@ -9,8 +9,13 @@ import java.util.Optional;
 
 import javax.persistence.EntityNotFoundException;
 
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.SliceImpl;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.egakat.commons.domain.AuditableEntity;
+import com.egakat.commons.dto.AuditableEntityDto;
 import com.egakat.core.domain.IdentifiedDomainObject;
 import com.egakat.core.services.crud.api.QueryService;
 
@@ -85,4 +90,20 @@ public abstract class QueryServiceImpl<E extends IdentifiedDomainObject<ID>, M e
 		val result = entities.stream().map(e -> asModel(e)).collect(toList());
 		return result;
 	}
+	protected Slice<M> asModels(Slice<E> slice, Pageable pageable) {
+		val models = asModels(slice.getContent());
+		val result = new SliceImpl<>(models, pageable, slice.hasNext());
+		return result;
+	}
+
+	protected void mapModel(AuditableEntity<ID> entity, AuditableEntityDto<ID> model) {
+		model.setId(entity.getId());
+		model.setVersion(entity.getVersion());
+		model.setCreadoPor(entity.getCreadoPor());
+		model.setFechaCreacion(entity.getFechaCreacion());
+		model.setModificadoPor(entity.getModificadoPor());
+		model.setFechaModificacion(entity.getFechaModificacion());
+	}
+
+	abstract protected M newModel();
 }

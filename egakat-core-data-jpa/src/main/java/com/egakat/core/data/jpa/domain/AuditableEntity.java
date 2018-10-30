@@ -1,4 +1,4 @@
-package com.egakat.commons.domain;
+package com.egakat.core.data.jpa.domain;
 
 import javax.persistence.Column;
 import javax.persistence.EntityListeners;

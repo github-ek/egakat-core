@@ -22,7 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<commons.text.version>1.1</commons.text.version>
+		<commons.text.version>1.3</commons.text.version>
 		<commons.lang3.version>3.7</commons.lang3.version>
 	</properties>
 
@@ -58,7 +58,8 @@
 		<module>egakat-core-services</module>
 		<module>egakat-core-web-api</module>
 		<module>egakat-core-web-client</module>
-		<module>egakat-commons-domain</module>
-		<module>egakat-commons-dto</module>
+		
+		
+		<module>egakat-core-mail</module>
 	</modules>
 </project>

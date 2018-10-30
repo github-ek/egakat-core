@@ -11,7 +11,11 @@ import org.springframework.stereotype.Component;
 @ConfigurationPropertiesBinding
 public class LocalDateConverter implements Converter<String, LocalDate> {
 
-	private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+	private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern(getDefaultDateFormat());
+
+	public static String getDefaultDateFormat() {
+		return "yyyy-MM-dd";
+	}
 
 	@Override
 	public LocalDate convert(String source) {
