@@ -52,7 +52,7 @@
 		</dependencies>
 	</dependencyManagement>
 	<modules>
-		<module>egakat-core-configuration</module>
+		
 		<module>egakat-core-domain</module>
 		<module>egakat-core-data-jpa</module>
 		<module>egakat-core-services</module>

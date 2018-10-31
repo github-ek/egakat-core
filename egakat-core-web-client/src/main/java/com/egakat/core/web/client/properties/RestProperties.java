@@ -1,4 +1,4 @@
-package com.egakat.core.web.client.configuration;
+package com.egakat.core.web.client.properties;
 
 public interface RestProperties {
 	

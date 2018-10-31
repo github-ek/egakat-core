@@ -11,7 +11,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.egakat.core.web.client.components.RestClient;
-import com.egakat.core.web.client.configuration.RestProperties;
+import com.egakat.core.web.client.properties.RestProperties;
 import com.egakat.core.web.client.service.api.LocalQueryService;
 
 import lombok.val;

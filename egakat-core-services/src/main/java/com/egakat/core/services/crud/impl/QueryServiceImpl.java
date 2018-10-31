@@ -14,9 +14,9 @@ import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.SliceImpl;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.egakat.commons.domain.AuditableEntity;
-import com.egakat.commons.dto.AuditableEntityDto;
+import com.egakat.core.data.jpa.domain.AuditableEntity;
 import com.egakat.core.domain.IdentifiedDomainObject;
+import com.egakat.core.dto.AuditableEntityDto;
 import com.egakat.core.services.crud.api.QueryService;
 
 import lombok.val;
