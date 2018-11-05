@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 import lombok.val;
 
-public class RestClientImpl implements RestClient {
+abstract public class AbstractRestClientImpl implements RestClient {
 	
 	@Autowired
 	private RestTemplate restTemplate;

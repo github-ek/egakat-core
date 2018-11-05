@@ -1,5 +1,6 @@
 package com.egakat.core.web.client.service.impl;
 
+
 import static java.util.Arrays.asList;
 
 import java.io.UnsupportedEncodingException;
