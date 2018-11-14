@@ -1,6 +1,5 @@
 package com.egakat.core.web.client.components;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -12,12 +11,7 @@ import lombok.val;
 
 abstract public class AbstractRestClientImpl implements RestClient {
 	
-	@Autowired
-	private RestTemplate restTemplate;
-
-	public RestTemplate getRestTemplate() {
-		return restTemplate;
-	};
+	abstract public RestTemplate getRestTemplate();
 
 	// -----------------------------------------------'-------------------------------------------------------------------------------------
 	// -- HTTP GET METHODS
