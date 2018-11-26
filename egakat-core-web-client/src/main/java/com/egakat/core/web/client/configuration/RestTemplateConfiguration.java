@@ -13,13 +13,17 @@ import lombok.val;
 public abstract class RestTemplateConfiguration {
 
 	protected CloseableHttpClient getHttpClient() {
-
-		int timeout = 60;
-		RequestConfig config = RequestConfig.custom().setConnectTimeout(timeout * 1000)
-				.setConnectionRequestTimeout(timeout * 1000).setSocketTimeout(timeout * 1000).build();
+		int timeout = 60 * 1000;
+		// @formatter:off
+		RequestConfig config = RequestConfig
+				.custom()
+				.setConnectTimeout(timeout)
+				.setConnectionRequestTimeout(timeout)
+				.setSocketTimeout(timeout)
+				.build();
+		// @formatter:on
 		CloseableHttpClient client = HttpClientBuilder.create().setDefaultRequestConfig(config).build();
 		return client;
-		// return HttpClientBuilder.create().build();
 	}
 
 	@Bean
