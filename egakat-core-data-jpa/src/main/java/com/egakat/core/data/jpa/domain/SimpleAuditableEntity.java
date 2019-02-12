@@ -12,7 +12,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.egakat.core.data.jpa.domain.BaseEntity;
+import com.egakat.core.domain.ObjectAuditableByTime;
 import com.egakat.core.domain.VersionableObject;
 
 import lombok.Getter;
@@ -26,7 +26,8 @@ import lombok.ToString;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-public abstract class SimpleAuditableEntity<ID> extends BaseEntity<ID> implements VersionableObject {
+public abstract class SimpleAuditableEntity<ID> extends BaseEntity<ID>
+		implements VersionableObject, ObjectAuditableByTime {
 
 	@Version
 	private int version;
