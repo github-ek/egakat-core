@@ -1,16 +1,13 @@
-package com.anexa.core.mail.configuration;
+package com.egakat.core.mail.configuration;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import lombok.val;
 
+public class MailAbstractConfiguration {
 
-@Configuration
-public class MailConfiguration {
-
-	public MailConfiguration() {
+	public MailAbstractConfiguration() {
 		super();
 	}
 

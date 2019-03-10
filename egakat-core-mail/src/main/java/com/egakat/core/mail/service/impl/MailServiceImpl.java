@@ -1,4 +1,4 @@
-package com.anexa.core.mail.service.impl;
+package com.egakat.core.mail.service.impl;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -12,9 +12,9 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
-import com.anexa.core.mail.configuration.MailProperties;
-import com.anexa.core.mail.dto.MailMessageDto;
-import com.anexa.core.mail.service.api.MailService;
+import com.egakat.core.mail.configuration.MailProperties;
+import com.egakat.core.mail.dto.MailMessageDto;
+import com.egakat.core.mail.service.api.MailService;
 
 import lombok.val;
 import lombok.extern.slf4j.Slf4j;
@@ -67,7 +67,6 @@ public class MailServiceImpl implements MailService {
 			helper.setText(content, html);
 
 			for (File attachment : attachments) {
-				// FileSystemResource file = new FileSystemResource(attachment);
 				val name = attachment.getName();
 				helper.addAttachment(name, attachment);
 			}

@@ -1,4 +1,4 @@
-package com.anexa.core.mail.configuration;
+package com.egakat.core.mail.configuration;
 
 import org.springframework.validation.annotation.Validated;
 

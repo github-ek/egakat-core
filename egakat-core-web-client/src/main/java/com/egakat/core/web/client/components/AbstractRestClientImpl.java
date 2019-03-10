@@ -5,12 +5,13 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import lombok.val;
 
 abstract public class AbstractRestClientImpl implements RestClient {
-	
+
 	abstract public RestTemplate getRestTemplate();
 
 	// -----------------------------------------------'-------------------------------------------------------------------------------------
@@ -66,7 +67,7 @@ abstract public class AbstractRestClientImpl implements RestClient {
 		val result = getRestTemplate().exchange(resourcePath, HttpMethod.PATCH, request, responseType, uriVariables);
 		return result;
 	}
-	
+
 	@Override
 	public <ID> void delete(String resourcePath, ID id) {
 		getRestTemplate().delete(resourcePath, id);
@@ -92,14 +93,22 @@ abstract public class AbstractRestClientImpl implements RestClient {
 	}
 
 	protected HttpHeaders getHttpHeaders() {
-		HttpHeaders headers;
-		headers = new HttpHeaders();
-		headers.setContentType(getMediaType());
-		return headers;
+		HttpHeaders result = new HttpHeaders();
+		result.setContentType(getMediaType());
+
+		val defaultHeaders = getDefaultHeaders();
+		if (defaultHeaders != null) {
+			result.addAll(defaultHeaders);
+		}
+		return result;
 	}
 
 	protected MediaType getMediaType() {
 		return MediaType.APPLICATION_JSON;
+	}
+
+	protected MultiValueMap<String, String> getDefaultHeaders() {
+		return null;
 	}
 
 	protected String buildUrl(String resourcePath, String query) {

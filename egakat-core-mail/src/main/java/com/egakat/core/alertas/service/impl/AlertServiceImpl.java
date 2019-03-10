@@ -1,18 +1,18 @@
-package com.anexa.core.alertas.service.impl;
+package com.egakat.core.alertas.service.impl;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.nio.file.Files;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.text.StringSubstitutor;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.util.StreamUtils;
 
-import com.anexa.core.alertas.service.api.AlertService;
+import com.egakat.core.alertas.service.api.AlertService;
 
 import lombok.val;
 import lombok.extern.slf4j.Slf4j;
@@ -115,9 +115,12 @@ public abstract class AlertServiceImpl<T, M> implements AlertService<T, M> {
 
 	protected String getTemplate(String path) {
 		try {
-			val result = new String(Files.readAllBytes((new ClassPathResource(path).getFile()).toPath()));
+			val in = (new ClassPathResource(path)).getInputStream();
+			val bytes = StreamUtils.copyToByteArray(in);
+			val result = new String(bytes);
 			return result;
 		} catch (IOException e) {
+			e.printStackTrace();
 			throw new RuntimeException("Error al acceder al recurso:" + path, e);
 		}
 	}
@@ -137,9 +140,9 @@ public abstract class AlertServiceImpl<T, M> implements AlertService<T, M> {
 	// -------------------------------------------------------------------------------------
 	// FORMATTERS
 	// -------------------------------------------------------------------------------------
-	protected static final DateTimeFormatter formatterDate = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+	private static final DateTimeFormatter formatterDate = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-	protected static final DateTimeFormatter formatterDateTime = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+	private static final DateTimeFormatter formatterDateTime = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
 	protected DateTimeFormatter getFormatterDate() {
 		return formatterDate;

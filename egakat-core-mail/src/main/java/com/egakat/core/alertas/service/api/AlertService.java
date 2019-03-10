@@ -1,4 +1,4 @@
-package com.anexa.core.alertas.service.api;
+package com.egakat.core.alertas.service.api;
 
 public interface AlertService<R, M> {
 

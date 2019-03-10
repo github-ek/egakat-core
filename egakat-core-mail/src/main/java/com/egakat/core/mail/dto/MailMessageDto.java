@@ -1,4 +1,4 @@
-package com.anexa.core.mail.dto;
+package com.egakat.core.mail.dto;
 
 import java.io.File;
 import java.io.Serializable;
