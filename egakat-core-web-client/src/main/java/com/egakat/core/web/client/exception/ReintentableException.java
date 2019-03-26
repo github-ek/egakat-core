@@ -1,6 +1,5 @@
 package com.egakat.core.web.client.exception;
 
-
 import java.nio.charset.Charset;
 
 import org.springframework.http.HttpHeaders;
