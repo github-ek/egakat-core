@@ -52,14 +52,11 @@
 		</dependencies>
 	</dependencyManagement>
 	<modules>
-		
 		<module>egakat-core-domain</module>
 		<module>egakat-core-data-jpa</module>
 		<module>egakat-core-services</module>
 		<module>egakat-core-web-api</module>
 		<module>egakat-core-web-client</module>
-		
-		
 		<module>egakat-core-mail</module>
 	</modules>
 </project>
